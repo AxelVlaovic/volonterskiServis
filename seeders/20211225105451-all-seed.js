@@ -59,8 +59,6 @@ module.exports = {
 
     }]);
 
-
-    
     queryInterface.bulkInsert('User_Suggestions', [{
         id:1,
         name:'Predlog1',
@@ -266,8 +264,29 @@ module.exports = {
 
          }], {});
 
-         
-
+         queryInterface.bulkInsert('Users_Activities', [{
+            id:1,
+            userId:3,
+            activityId:1,
+            createdAt: new Date(),
+            updatedAt: new Date()        
+      
+        },{
+            id:2,
+            userId:3,
+            activityId:2,
+            createdAt: new Date(),
+            updatedAt: new Date()
+      
+      
+        },{
+            id:3,
+            userId:4,
+            activityId:1,
+            createdAt: new Date(),
+            updatedAt: new Date()
+      
+        }],{});
          
 
   },
@@ -288,6 +307,11 @@ module.exports = {
 
 
     });
+
+      await queryInterface.bulkDelete('Users_Activities', null, {
+
+
+      });
 
 
   }
