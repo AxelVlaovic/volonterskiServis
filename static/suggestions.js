@@ -7,7 +7,7 @@ function init(){
         window.location.href = 'main_page.html';
     });
 
-    fetch('http://localhost:5000/admin/user_suggestions',{
+    fetch('https://volonterskiapi.herokuapp.com/api/user_suggestions',{
         headers: {'Authorization' : `Bearer ${token}`}
     })
         .then(res => res.json())
@@ -21,7 +21,7 @@ function init(){
 
         });
 
-    fetch('http://localhost:5000/admin/users',{
+    fetch('https://volonterskiapi.herokuapp.com/api/users',{
         headers:{'Authorization' : `Bearer ${token}`}
     })
         .then(res => res.json())
@@ -64,7 +64,7 @@ function init(){
             role.value = '';
             description.value = '';              
 
-        fetch('http://localhost:5000/admin/user_suggestions',{
+        fetch('https://volonterskiapi.herokuapp.com/api/user_suggestions',{
             method: 'POST',
             headers: {'Content-Type': 'application/json','Authorization': `Bearer ${token}`},
             body: JSON.stringify(data)
@@ -74,7 +74,7 @@ function init(){
 
                 if(ell!=null){
 
-                    fetch("http://localhost:5000/admin/user_suggestions/" + ell.id.toString(),{
+                    fetch("https://volonterskiapi.herokuapp.com/api/user_suggestions/" + ell.id.toString(),{
                         headers: {'Authorization' : `Bearer ${token}`}
                     })
                             .then(row => row.json())
@@ -104,7 +104,7 @@ function init(){
 
         if(suggestionId != ''){
 
-        fetch('http://localhost:5000/admin/user_suggestions/' + suggestionId,{
+        fetch('https://volonterskiapi.herokuapp.com/api/user_suggestions/' + suggestionId,{
             method: 'DELETE',
             headers:{'Authorization' : `Bearer ${token}`}
         })
@@ -112,7 +112,7 @@ function init(){
             .then(suggestion => {
 
                 if(suggestion != null){
-                    fetch('http://localhost:5000/admin/user_suggestions',{
+                    fetch('https://volonterskiapi.herokuapp.com/api/user_suggestions',{
                         headers:{'Authorization' : `Bearer ${token}`}
                     })
                         .then(res => res.json())
@@ -155,7 +155,7 @@ function init(){
 
         if(suggestionId != ''){
 
-            fetch('http://localhost:5000/admin/user_suggestions/' + suggestionId,{
+            fetch('https://volonterskiapi.herokuapp.com/api/user_suggestions/' + suggestionId,{
                 headers:{'Authorization' : `Bearer ${token}`}
             })
                 .then(res => res.json())
@@ -221,7 +221,7 @@ function init(){
 
         if(suggestionId!=''){
 
-            fetch('http://localhost:5000/admin/user_suggestions/' + suggestionId,{
+            fetch('https://volonterskiapi.herokuapp.com/api/user_suggestions/' + suggestionId,{
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json','Authorization' : `Bearer ${token}`},
                 body: JSON.stringify(data)
@@ -231,7 +231,7 @@ function init(){
 
                     if(suggestion!=null){
                         
-                        fetch('http://localhost:5000/admin/user_suggestions',{
+                        fetch('https://volonterskiapi.herokuapp.com/api/user_suggestions',{
                             headers:{'Authorization' : `Bearer ${token}`}
                         })
                                 .then(result => result.json())

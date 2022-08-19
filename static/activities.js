@@ -7,7 +7,7 @@ function init(){
         window.location.href = 'main_page.html';
     });
 
-    fetch('http://localhost:5000/admin/activities',{
+    fetch('https://volonterskiapi.herokuapp.com/api/activities',{
         headers:{'Authorization' : `Bearer ${token}`}
     })
     .then(res => res.json())
@@ -53,7 +53,7 @@ function init(){
             outdoor.checked = false;
             date.value = '';
 
-        fetch('http://localhost:5000/admin/activities',{
+        fetch('https://volonterskiapi.herokuapp.com/api/activities',{
             method: 'POST',
             headers: {'Content-Type': 'application/json','Authorization' : `Bearer ${token}`},
             body: JSON.stringify(data)
@@ -80,7 +80,7 @@ function init(){
 
         if(activityId != ''){
 
-        fetch('http://localhost:5000/admin/activities/' + activityId,{
+        fetch('https://volonterskiapi.herokuapp.com/api/activities/' + activityId,{
             headers:{'Authorization' : `Bearer ${token}`}
         })
             .then(res => res.json())
@@ -89,7 +89,7 @@ function init(){
                     alert('Id is not valid');
                 }else{
                     
-                    fetch('http://localhost:5000/admin/activities/' + activityId,{  
+                    fetch('https://volonterskiapi.herokuapp.com/api/activities/' + activityId,{  
                         method: 'DELETE',
                         headers:{'Authorization' : `Bearer ${token}`}
                     })
@@ -100,7 +100,7 @@ function init(){
                                 alert('Id is not valid');   
                             }
             
-                            fetch('http://localhost:5000/admin/activities',{
+                            fetch('https://volonterskiapi.herokuapp.com/api/activities',{
                                 headers:{'Authorization' : `Bearer ${token}`}
                             })
                             .then(res => res.json())
@@ -116,14 +116,14 @@ function init(){
             
                                 });
 
-                            fetch('http://localhost:5000/admin/relations_activity/' + activityId,{
+                            fetch('https://volonterskiapi.herokuapp.com/api/relations_activity/' + activityId,{
                                 headers:{'Authorization' : `Bearer ${token}`}
                             })
                                 .then(res => res.json())
                                 .then(rows => {
 
                                     rows.forEach(relation => {
-                                        fetch('http://localhost:5000/admin/users_activities/' + relation.id,{
+                                        fetch('https://volonterskiapi.herokuapp.com/api/users_activities/' + relation.id,{
                                             method:'DELETE',
                                             headers:{'Authorization' : `Bearer ${token}`}
                                         })
@@ -155,7 +155,7 @@ function init(){
 
         if(actId != ''){
 
-        fetch('http://localhost:5000/admin/activities/' + actId,{
+        fetch('https://volonterskiapi.herokuapp.com/api/activities/' + actId,{
             headers:{'Authorization' : `Bearer ${token}`}
         })
             .then(res => res.json())
@@ -242,7 +242,7 @@ function init(){
                 
             }else{
             
-            fetch('http://localhost:5000/admin/activities/' + activityId,{
+            fetch('https://volonterskiapi.herokuapp.com/api/activities/' + activityId,{
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json','Authorization' : `Bearer ${token}`},
                 body: JSON.stringify(data)
@@ -254,7 +254,7 @@ function init(){
                         alert('Invalid credentials');
                     }else{
                         
-                        fetch('http://localhost:5000/admin/activities',{
+                        fetch('https://volonterskiapi.herokuapp.com/api/activities',{
                             headers:{'Authorization' : `Bearer ${token}`}
                         })
                             .then(res => res.json())
@@ -288,7 +288,7 @@ function init(){
 
         if(activityId != ''){
 
-            fetch('http://localhost:5000/admin/activities/' + activityId,{
+            fetch('https://volonterskiapi.herokuapp.com/api/activities/' + activityId,{
                 headers:{'Authorization' : `Bearer ${token}`}
             })
                 .then(res => res.json())
@@ -298,7 +298,7 @@ function init(){
 
                         activityLst.innerHTML = `<li>Name:${activity.name}|Organisation:${activity.organisation}</li>`;
 
-                        fetch('http://localhost:5000/admin/relations_activity/' + activityId,{
+                        fetch('https://volonterskiapi.herokuapp.com/api/relations_activity/' + activityId,{
                             headers:{'Authorization' : `Bearer ${token}`}
                         })
                             .then(res => res.json())

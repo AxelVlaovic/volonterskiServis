@@ -7,7 +7,7 @@ function init(){
         window.location.href = 'main_page.html';
     });
 
-    fetch('http://localhost:5000/admin/users',{
+    fetch('https://volonterskiapi.herokuapp.com/api/users',{
         headers:{'Authorization': `Bearer ${token}`}
     })
         .then(res => res.json())
@@ -22,7 +22,7 @@ function init(){
 
         })
 
-    fetch('http://localhost:5000/admin/activities',{
+    fetch('https://volonterskiapi.herokuapp.com/api/activities',{
         headers:{'Authorization': `Bearer ${token}`}
     })
         .then(res => res.json())
@@ -36,7 +36,7 @@ function init(){
 
         })
 
-    fetch('http://localhost:5000/admin/users_activities',{
+    fetch('https://volonterskiapi.herokuapp.com/api/users_activities',{
         headers:{'Authorization': `Bearer ${token}`}
     })
         .then(res => res.json())
@@ -65,7 +65,7 @@ function init(){
         userId.value = '';
         activityId.value = '';
 
-        fetch('http://localhost:5000/admin/users_activities',{
+        fetch('https://volonterskiapi.herokuapp.com/api/users_activities',{
             method: 'POST',
             headers: {'Content-Type' : 'application/json','Authorization': `Bearer ${token}`},
             body: JSON.stringify(data)
@@ -77,7 +77,7 @@ function init(){
 
                     const relationId = element.id;
 
-                    fetch('http://localhost:5000/admin/users_activities/' + relationId,{
+                    fetch('https://volonterskiapi.herokuapp.com/api/users_activities/' + relationId,{
                         headers : {'Authorization': `Bearer ${token}`}
                     })
                         .then(result=>result.json())
@@ -104,7 +104,7 @@ function init(){
         
         if(relationId!=''){
 
-            fetch('http://localhost:5000/admin/users_activities/' + relationId,{
+            fetch('https://volonterskiapi.herokuapp.com/api/users_activities/' + relationId,{
                 method: 'DELETE',
                 headers:{'Authorization': `Bearer ${token}`}
             })
@@ -113,7 +113,7 @@ function init(){
 
                     if(row!=null){
 
-                        fetch('http://localhost:5000/admin/users_activities',{
+                        fetch('https://volonterskiapi.herokuapp.com/api/users_activities',{
                             headers: {'Authorization': `Bearer ${token}`}
                         })
                         .then(res => res.json())
@@ -161,7 +161,7 @@ function init(){
 
         if(relationId!=''){
 
-            fetch('http://localhost:5000/admin/users_activities/' + relationId,{
+            fetch('https://volonterskiapi.herokuapp.com/api/users_activities/' + relationId,{
                 method: 'PUT',
                 headers: {'Content-Type' : 'application/json','Authorization': `Bearer ${token}`},
                 body: JSON.stringify(obj)
@@ -171,7 +171,7 @@ function init(){
 
                     if(element!=null){
                             
-                        fetch('http://localhost:5000/admin/users_activities',{
+                        fetch('https://volonterskiapi.herokuapp.com/api/users_activities',{
                             headers:{'Authorization': `Bearer ${token}`}
                         })
                             .then(ress => ress.json())
