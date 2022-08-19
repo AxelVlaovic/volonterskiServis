@@ -29,7 +29,7 @@ route.get('/test',(req,res)=>{
 
     Users_Activities.findAll({include:['users','activities']})
         .then(rows => res.json(rows))
-        .catch(err => res.status(555));
+        .catch(err => res.status({msg: 'ovo je problem'}));
 
 });
 
