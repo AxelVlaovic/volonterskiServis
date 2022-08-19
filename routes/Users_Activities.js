@@ -27,17 +27,11 @@ function authToken(req,res,next){
 
 route.get('/test',(req,res)=>{
 
-    Users_Activities.findAll({include: [{
-        model: Users,
-        as: 'users',
-      }]})
-        .then(relations => {
-            res.json(relations)
-        })
-        .catch(err => res.status(500));
+    Users_Activities.findAll({include:['users']})              
+    .then(rows => res.json(rows))
+    .catch(err => res.status(500));
 
-        
-    });
+});
 
 route.get('/users_activities',authToken,(req,res)=>{  
     
