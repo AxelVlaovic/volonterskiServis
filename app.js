@@ -192,7 +192,9 @@ app.use(history({index: '/index.html'}));
 app.use(staticMdl);
 
 app.use(express.static(path.join(__dirname,'static'))); 
-server.listen({port:7777},async()=>{
+
+
+server.listen({port: process.env.PORT || 7777},async()=>{
 
     await sequelize.authenticate();
 
