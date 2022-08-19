@@ -71,7 +71,7 @@ route.get('/user_relations_api',authToken,(req,res)=>{
 
     Users_Activities.findAll({where:{userId:req.user.userId}}) 
         .then(rows => res.json(rows)) 
-        .catch(err => res.status(500).json(null));
+        .catch(err => res.status(500).json({msg: 'ne moze'}));
 
 })
 
