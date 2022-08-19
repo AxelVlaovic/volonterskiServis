@@ -21,7 +21,7 @@ app.use('/api',ActivityApi)
 app.use('/api',Users_ActivitiesApi);
 app.use('/api',User_Suggestions);
 
-app.listen({port:5000},async() => {
+app.listen({port: process.env.PORT || 5000},async() => {
     await sequelize.authenticate();
     console.log('Api aplikacija');
 });
