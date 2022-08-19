@@ -97,7 +97,7 @@ app.post('/register',(req,res)=>{
 
 })
 
-app.listen({port:8888},async() => {
+app.listen({port: process.env.PORT || 8888},async() => {
 
     await sequelize.authenticate();
     console.log('Auth aplikacija');
