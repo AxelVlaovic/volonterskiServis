@@ -25,6 +25,14 @@ function authToken(req,res,next){
 
 }
 
+route.get('/test',(req,res)=>{
+
+    Activities.findAll()
+        .then(rows => res.json(rows))
+        .catch(err => res.status(500).json(err));
+
+});
+
 route.get('/users_activities',authToken,(req,res)=>{  
     
     Users_Activities.findAll({include:['users','activities']})              
