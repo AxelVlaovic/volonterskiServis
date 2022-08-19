@@ -16,7 +16,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
 
     cors: {
-        origin: 'http://localhost:8080',
+        origin: 'https://volonterskiapp.herokuapp.com',
         methods: ['GET','POST'],
         credentials: true
 
@@ -27,7 +27,7 @@ const io = new Server(server, {
 });
 
 var corsOption = {
-    origin: 'http://localhost:8080',
+    origin: 'https://volonterskiapp.herokuapp.com',
     optionsSuccessStatus: 200
 }
 
