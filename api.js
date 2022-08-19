@@ -7,7 +7,7 @@ const User_Suggestions = require('./routes/User_Suggestions');
 const cors = require('cors');
 
 const corsOption = {
-    origin:'*',
+    origin:'https://volonterskiapp.herokuapp.com/',
     optionSuccessStatus:200,
     credentials: true
 }
