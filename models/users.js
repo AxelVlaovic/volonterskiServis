@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
      static associate({User_Suggestions,Activities,Users_Activities}) {
         this.hasMany(User_Suggestions,{foreignKey: 'userId',as:'user_suggestions',onDelete:'cascade',hooks:true});
+        this.hasMany(Users_Activities,{foreignKey: 'userId',as:'user_activities',onDelete:'cascade',hooks:true});
       }
   };
   Users.init({

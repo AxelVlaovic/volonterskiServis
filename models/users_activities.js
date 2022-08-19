@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({Users,Activities}) {
       this.belongsTo(Users,{foreignKey:'userId',as:'users'});
-      this.belongsTo(Activities,{foreignKey:'activityId',as:'activities'});
+      //this.belongsTo(Activities,{foreignKey:'activityId',as:'activities'});
     }
   };
   Users_Activities.init({
