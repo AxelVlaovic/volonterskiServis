@@ -1,5 +1,6 @@
 const express = require('express');
-const {Users,Activities,Users_Activities,Sequelize} = require('../models');
+const {Users, Activities , Users_Activities , Sequelize } = require('../models');
+//const {Users,Activities,Users_Activities,Sequelize} = require('../models');
 const jwt = require('jsonwebtoken');
 require('dotenv').config
 
