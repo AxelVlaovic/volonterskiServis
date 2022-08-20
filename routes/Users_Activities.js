@@ -159,8 +159,10 @@ route.delete('/users_activities_single/:id',authToken,(req,res)=>{
     Users_Activities.findOne({where:{userId:userActivity.userId,activityId:userActivity.activityId}})
         .then(relation => {
 
+            const rel = relation;
+
             relation.destroy()
-                        .then(row => res.json(row))
+                        .then(row => res.json(rel))
                         .catch(err => res.status(500).json(null));
 
     })
